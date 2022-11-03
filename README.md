@@ -9,3 +9,5 @@
 [komentorivi.txt](https://github.com/maijams/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
 muutos
+
+t17 paikallinen
