@@ -3,34 +3,36 @@ class Kassapaate:
         self.kassassa_rahaa = 100000
         self.edulliset = 0
         self.maukkaat = 0
+        self.hinta_edullinen = 240
+        self.hinta_maukas = 400
 
     def syo_edullisesti_kateisella(self, maksu):
-        if maksu >= 240:
-            self.kassassa_rahaa = self.kassassa_rahaa + 240
+        if maksu >= self.hinta_edullinen:
+            self.kassassa_rahaa += self.hinta_edullinen
             self.edulliset += 1
-            return maksu - 240
+            return maksu - self.hinta_edullinen
         else:
             return maksu
 
     def syo_maukkaasti_kateisella(self, maksu):
-        if maksu >= 400:
-            self.kassassa_rahaa = self.kassassa_rahaa + 400
+        if maksu >= self.hinta_maukas:
+            self.kassassa_rahaa += self.hinta_maukas
             self.maukkaat += 1
-            return maksu - 400
+            return maksu - self.hinta_maukas
         else:
             return maksu
 
     def syo_edullisesti_kortilla(self, kortti):
-        if kortti.saldo >= 240:
-            kortti.ota_rahaa(240)
+        if kortti.saldo >= self.hinta_edullinen:
+            kortti.ota_rahaa(self.hinta_edullinen)
             self.edulliset += 1
             return True
         else:
             return False
 
     def syo_maukkaasti_kortilla(self, kortti):
-        if kortti.saldo >= 400:
-            kortti.ota_rahaa(400)
+        if kortti.saldo >= self.hinta_maukas:
+            kortti.ota_rahaa(self.hinta_maukas)
             self.maukkaat += 1
             return True
         else:
