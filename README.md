@@ -1,10 +1,8 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## Tehtävät
+## Dokumentaatio
 
-### Viikko 1
+[Vaatimusmäärittely](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
-[gitlog.txt](https://github.com/maijams/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/maijams/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+[Työaikakirjanpito](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
