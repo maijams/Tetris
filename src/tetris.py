@@ -47,6 +47,7 @@ class Tetris:
             for X in range(1, 5):
                 square = Y*4 + X
                 if square in self.block.figure():
-                    pass
+                    self.field[self.block.y+Y][self.block.x+X-1] = 1
+        self.new_block()
     
     
