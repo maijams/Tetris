@@ -9,11 +9,11 @@ Harjoitustyön aiheena on Pygame-kirjaston avulla toteutettu klassikkopeli Tetri
 
 Perusversiossa on toteutettu Tetriksen perinteiset ominaisuudet. Pelin tavoitteena on kerätä mahdollisimman paljon pisteitä muodostamalla ylhäältä putoavien palikoiden avulla täysiä palikkarivejä. Toiminnallisuuksiin kuuluu mm.:
 
-[x] Pelilaudan koko on perinteinen 10 x 20 ruutua (L x K)
-[x] Pelissä on seitsemän erilaista, neljän ruudun kokoista palikkaa (tetrominoa)
-[x] Palikat putoavat vakionopeudella
-[x] Putoavia palikoita voidaan liikuttaa sivusuunnassa ja kääntää näppäinkomennoilla
-[ ] Rivin täyttyessä kyseinen rivi tuhoutuu ja pelaaja saa pisteitä
+- [x] Pelilaudan koko on perinteinen 10 x 20 ruutua (L x K)
+- [x] Pelissä on seitsemän erilaista, neljän ruudun kokoista palikkaa (tetrominoa)
+- [x] Palikat putoavat vakionopeudella
+- [x] Putoavia palikoita voidaan liikuttaa sivusuunnassa ja kääntää näppäinkomennoilla
+- [ ] Rivin täyttyessä kyseinen rivi tuhoutuu ja pelaaja saa pisteitä
 - Tuhoamalla useamman rivin kerralla yhden palikan avulla, pelaaja saa ekstrapisteitä
 - Peli päättyy jos palikkapino kasvaa pelilaudan korkuiseksi
 - Pelin päättyessä pelaajan saama pistetulos tallennetaan tiedostoon ja pelaaja voi tarkastella aiempien pelien pistekärkeä
