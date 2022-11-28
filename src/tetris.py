@@ -40,6 +40,8 @@ class Tetris:
                         collide = True
                     elif self.block.x + X < 1:
                         collide = True
+                    elif self.field[self.block.y+Y][self.block.x+X-1] != 0:
+                        collide = True
         return collide
     
     def freeze(self):
