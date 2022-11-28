@@ -11,6 +11,7 @@ class GameLoop:
         self._counter = 0
 
     def start(self):
+        self._speed_down = False
         while True:
             if self._game.block is None:
                 self._game.new_block()
@@ -19,7 +20,7 @@ class GameLoop:
             if self._counter > 10000:
                 self._counter = 0
              
-            if self._game.state == "play" and self._counter % 50 == 0:
+            if (self._game.state == "play" and self._counter % 50 == 0) or self._speed_down:
                 self._game.move_down()
 
             if self._handle_events() is False:
@@ -39,9 +40,13 @@ class GameLoop:
                 if event.key == pygame.K_UP:
                     self._game.rotate()
                 if event.key == pygame.K_DOWN:
-                    pass
+                    self._speed_down = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_DOWN:
+                    self._speed_down = False
             elif event.type == pygame.QUIT:
                 return False
+            
 
     def _render(self):
         self._renderer.render()
