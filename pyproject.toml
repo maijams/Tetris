@@ -15,6 +15,7 @@ pytest = "^7.2.0"
 invoke = "^1.7.3"
 pylint = "^2.15.6"
 coverage = "^6.5.0"
+autopep8 = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core"]

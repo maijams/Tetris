@@ -12,7 +12,7 @@ class GameLoop:
         while True:
             if self._handle_events() == False:
                 break
-            
+
             self._render()
 
             self._clock.tick(60)

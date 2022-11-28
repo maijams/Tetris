@@ -6,6 +6,7 @@ from clock import Clock
 
 TILE_SIZE = 55
 
+
 def main():
     width = 10
     height = 20
@@ -18,18 +19,17 @@ def main():
 
     pygame.display.set_caption("Tetris")
 
-    grid = [pygame.Rect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) for x in range(width) for y in range(height)]
+    grid = [pygame.Rect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE)
+            for x in range(width) for y in range(height)]
 
     event_queue = EventQueue()
     renderer = Renderer(display, game_screen, grid)
     clock = Clock()
     game_loop = GameLoop(renderer, event_queue, clock, TILE_SIZE)
-    
-    
+
     pygame.init()
     game_loop.start()
-    
-    
-    
+
+
 if __name__ == "__main__":
     main()
