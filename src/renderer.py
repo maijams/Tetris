@@ -11,9 +11,7 @@ class Renderer:
 
     def render(self):
         self._game_screen.fill((0, 0, 0))
-        [pygame.draw.rect(self._game_screen, (255, 255, 255), tile, 1)
-         for tile in self._grid]
-        
+       
         for Y in range(self._game.height):
             for X in range(self._game.width):
                 if self._game.field[Y][X] != 0:
@@ -30,6 +28,9 @@ class Renderer:
                             self._game.block.y + y), self._tile_size, self._tile_size)
                         pygame.draw.rect(self._game_screen,
                                          self._game.block.color, rect)
+
+        [pygame.draw.rect(self._game_screen, (240, 240, 240), tile, 1)
+         for tile in self._grid]
 
         self._display.blit(self._game_screen, (50, 40))
         pygame.display.update()
