@@ -16,11 +16,13 @@ class GameLoop:
                 self._game.new_block()
 
             self._counter += 1
+            if self._counter > 10000:
+                self._counter = 0
              
             if self._game.state == "play" and self._counter % 50 == 0:
                 self._game.move_down()
 
-            if self._handle_events() == False:
+            if self._handle_events() is False:
                 break
 
             self._render()
