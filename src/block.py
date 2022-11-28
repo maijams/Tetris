@@ -18,12 +18,12 @@ class Block:
         self.y = y
         self.shape = random.randint(0, len(self.blocks)-1)
         self.rotation = 0
-        
+
     def rotate(self):
         if self.rotation == len(self.blocks[self.shape])-1:
             self.rotation = 0
         else:
             self.rotation += 1
-            
+
     def figure(self):
         return self.blocks[self.shape][self.rotation]
