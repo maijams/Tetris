@@ -1,5 +1,15 @@
 import random
 
+BLUE = (66, 135, 245)
+PINK = (245, 66, 218)
+GREEN = (147, 245, 66)
+PURPLE = (137, 68, 227)
+YELLOW = (230, 227, 94)
+RED = (189, 45, 62)
+ORANGE = (189, 98, 45)
+LIGHTBLUE = (45, 189, 184)
+
+colors = [BLUE, PINK, GREEN, PURPLE, YELLOW, RED, ORANGE, LIGHTBLUE]
 
 class Block:
     # Possible positions in 4x4 grid
@@ -18,6 +28,7 @@ class Block:
         self.y = y
         self.shape = random.randint(0, len(self.blocks)-1)
         self.rotation = 0
+        self.color = colors[random.randint(0, len(colors)-1)]
 
     def rotate(self):
         if self.rotation == len(self.blocks[self.shape])-1:

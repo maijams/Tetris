@@ -19,7 +19,7 @@ class Renderer:
                 if self._game.field[Y][X] != 0:
                     rect = pygame.Rect(self._tile_size*X, self._tile_size*Y, self._tile_size, self._tile_size)
                     pygame.draw.rect(self._game_screen,
-                                         (255, 255, 255), rect)
+                                         self._game.field[Y][X], rect)
         
         if self._game.block is not None:
             for y in range(4):
@@ -29,7 +29,7 @@ class Renderer:
                         rect = pygame.Rect(self._tile_size*(self._game.block.x + x-1), self._tile_size*(
                             self._game.block.y + y), self._tile_size, self._tile_size)
                         pygame.draw.rect(self._game_screen,
-                                         (255, 255, 255), rect)
+                                         self._game.block.color, rect)
 
         self._display.blit(self._game_screen, (50, 40))
         pygame.display.update()
