@@ -50,6 +50,13 @@ class Tetris:
                 square = Y*4 + X
                 if square in self.block.figure():
                     self.field[self.block.y+Y][self.block.x+X-1] = self.block.color
+        self.remove_lines()
         self.new_block()
     
+    def remove_lines(self):
+        for Y in range(1, self.height):
+            if self.field[Y].count(0) == 0:
+                for i in range(Y, 1, -1):
+                    for X in range(self.width):
+                        self.field[i][X] = self.field[i-1][X]
     
