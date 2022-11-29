@@ -20,8 +20,9 @@ class GameLoop:
             if self._counter > 10000:
                 self._counter = 0
 
-            if (self._game.state == "play" and self._counter % 50 == 0) or self._speed_down:
-                self._game.move_down()
+            if self._counter % 50 == 0 or self._speed_down:
+                if self._game.state == "play":
+                    self._game.move_down()
 
             if self._handle_events() is False:
                 break
