@@ -10,6 +10,7 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 [Changelog](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 
+[Arkkitehtuuri](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
 
 ## Pelin asennus 
@@ -22,7 +23,11 @@ Pelin saa käyntiin komennolla:
 ```
 poetry run invoke start
 ```
-Testikattavuusraportin luominen htmlcov-hakemistoon:
+Testikattavuusraportin luominen projektin htmlcov-hakemistoon:
 ```
 poetry run invoke coverage-report
+```
+Pylint-tarkastuksen suorittaminen:
+```
+poetry run invoke lint
 ```
