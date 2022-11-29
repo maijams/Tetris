@@ -24,7 +24,7 @@ class GameLoop:
                 if self._game.state == "play":
                     self._game.move_down()
 
-            if self._handle_events() is False:
+            if self._handle_events() == "quit":
                 break
 
             self._render()
@@ -46,7 +46,7 @@ class GameLoop:
                 if event.key == pygame.K_DOWN:
                     self._speed_down = False
             elif event.type == pygame.QUIT:
-                return False
+                return "quit"
 
     def _render(self):
         self._renderer.render()

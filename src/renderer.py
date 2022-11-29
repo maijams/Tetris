@@ -41,8 +41,8 @@ class Renderer:
                             self._game.block.color, rect
                         )
 
-        [pygame.draw.rect(self._game_screen, (240, 240, 240), tile, 1)
-         for tile in self._grid]
+        for tile in self._grid:
+            pygame.draw.rect(self._game_screen, (240, 240, 240), tile, 1)
 
         self._display.blit(self._game_screen, (50, 40))
         pygame.display.update()
