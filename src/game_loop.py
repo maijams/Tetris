@@ -9,9 +9,9 @@ class GameLoop:
         self._clock = clock
         self._tile_size = tile_size
         self._counter = 0
+        self._speed_down = False
 
     def start(self):
-        self._speed_down = False
         while True:
             if self._game.block is None:
                 self._game.new_block()
