@@ -12,23 +12,34 @@ class Renderer:
     def render(self):
         self._game_screen.fill((0, 0, 0))
 
-        for Y in range(self._game.height):
-            for X in range(self._game.width):
-                if self._game.field[Y][X] != 0:
+        for field_y in range(self._game.height):
+            for field_x in range(self._game.width):
+                if self._game.field[field_y][field_x] != 0:
                     rect = pygame.Rect(
-                        self._tile_size*X, self._tile_size*Y, self._tile_size, self._tile_size)
-                    pygame.draw.rect(self._game_screen,
-                                     self._game.field[Y][X], rect)
+                        self._tile_size*field_x,
+                        self._tile_size*field_y,
+                        self._tile_size, self._tile_size
+                    )
+                    pygame.draw.rect(
+                        self._game_screen,
+                        self._game.field[field_y][field_x],
+                        rect
+                    )
 
         if self._game.block is not None:
-            for y in range(4):
-                for x in range(1, 5):
-                    square = y*4 + x
+            for field_y in range(4):
+                for field_x in range(1, 5):
+                    square = field_y*4 + field_x
                     if square in self._game.block.figure():
-                        rect = pygame.Rect(self._tile_size*(self._game.block.x + x-1), self._tile_size*(
-                            self._game.block.y + y), self._tile_size, self._tile_size)
-                        pygame.draw.rect(self._game_screen,
-                                         self._game.block.color, rect)
+                        rect = pygame.Rect(
+                            self._tile_size*(self._game.block.x + field_x-1),
+                            self._tile_size*(self._game.block.y + field_y),
+                            self._tile_size, self._tile_size
+                        )
+                        pygame.draw.rect(
+                            self._game_screen,
+                            self._game.block.color, rect
+                        )
 
         [pygame.draw.rect(self._game_screen, (240, 240, 240), tile, 1)
          for tile in self._grid]

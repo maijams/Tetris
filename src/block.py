@@ -24,9 +24,9 @@ class Block:
         [[7, 9, 10, 11], [2, 6, 10, 11], [6, 7, 8, 10], [6, 7, 11, 15]]
     ]
 
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    def __init__(self, location_x, location_y):
+        self.x = location_x
+        self.y = location_y
         self.shape = random.randint(0, len(self.blocks)-1)
         self.rotation = 0
         self.color = colors[random.randint(0, len(colors)-1)]

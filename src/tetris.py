@@ -30,35 +30,35 @@ class Tetris:
 
     def collision(self):
         collide = False
-        for Y in range(4):
-            for X in range(1, 5):
-                square = Y*4 + X
+        for field_y in range(4):
+            for field_x in range(1, 5):
+                square = field_y*4 + field_x
                 if square in self.block.figure():
-                    if self.block.y + Y > self.height - 1:
+                    if self.block.y + field_y > self.height - 1:
                         collide = True
-                    elif self.block.x + X > self.width:
+                    elif self.block.x + field_x > self.width:
                         collide = True
-                    elif self.block.x + X < 1:
+                    elif self.block.x + field_x < 1:
                         collide = True
-                    elif self.field[self.block.y+Y][self.block.x+X-1] != 0:
+                    elif self.field[self.block.y+field_y][self.block.x+field_x-1] != 0:
                         collide = True
         return collide
 
     def freeze(self):
-        for Y in range(4):
-            for X in range(1, 5):
-                square = Y*4 + X
+        for field_y in range(4):
+            for field_x in range(1, 5):
+                square = field_y*4 + field_x
                 if square in self.block.figure():
-                    self.field[self.block.y+Y][self.block.x +
-                                               X-1] = self.block.color
+                    self.field[self.block.y+field_y][self.block.x +
+                                                     field_x-1] = self.block.color
         self.remove_lines()
         self.new_block()
         if self.collision():
             self.state = "end"
 
     def remove_lines(self):
-        for Y in range(1, self.height):
-            if self.field[Y].count(0) == 0:
-                for i in range(Y, 1, -1):
-                    for X in range(self.width):
-                        self.field[i][X] = self.field[i-1][X]
+        for field_y in range(1, self.height):
+            if self.field[field_y].count(0) == 0:
+                for i in range(field_y, 1, -1):
+                    for field_x in range(self.width):
+                        self.field[i][field_x] = self.field[i-1][field_x]
