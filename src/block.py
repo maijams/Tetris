@@ -11,6 +11,7 @@ LIGHTBLUE = (45, 189, 184)
 
 colors = [BLUE, PINK, GREEN, PURPLE, YELLOW, RED, ORANGE, LIGHTBLUE]
 
+
 class Block:
     # Possible positions in 4x4 grid
     blocks = [

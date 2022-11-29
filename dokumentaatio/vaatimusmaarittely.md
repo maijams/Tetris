@@ -14,8 +14,8 @@ Perusversiossa on toteutettu Tetriksen perinteiset ominaisuudet. Pelin tavoittee
 - [x] Palikat putoavat vakionopeudella
 - [x] Putoavia palikoita voidaan liikuttaa sivusuunnassa näppäinkomennoilla
 - [x] Putoavia palikoita voidaan kääntää näppäinkomennolla
-- [ ] Palikka pysähtyy sen törmätessä seinään, lattiaan tai toiseen palikkaan
-- [ ] Rivin täyttyessä palikoista, kyseinen rivi tuhoutuu
+- [x] Palikka pysähtyy sen törmätessä seinään, lattiaan tai toiseen palikkaan
+- [x] Rivin täyttyessä palikoista, kyseinen rivi tuhoutuu
 - [ ] Rivin täyttyessä pelaaja saa pisteitä
 - [ ] Tuhoamalla useamman rivin kerralla yhden palikan avulla, pelaaja saa ekstrapisteitä
 - [ ] Peli päättyy jos palikkapino kasvaa pelilaudan korkuiseksi

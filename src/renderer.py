@@ -11,14 +11,15 @@ class Renderer:
 
     def render(self):
         self._game_screen.fill((0, 0, 0))
-       
+
         for Y in range(self._game.height):
             for X in range(self._game.width):
                 if self._game.field[Y][X] != 0:
-                    rect = pygame.Rect(self._tile_size*X, self._tile_size*Y, self._tile_size, self._tile_size)
+                    rect = pygame.Rect(
+                        self._tile_size*X, self._tile_size*Y, self._tile_size, self._tile_size)
                     pygame.draw.rect(self._game_screen,
-                                         self._game.field[Y][X], rect)
-        
+                                     self._game.field[Y][X], rect)
+
         if self._game.block is not None:
             for y in range(4):
                 for x in range(1, 5):

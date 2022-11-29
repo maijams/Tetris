@@ -19,7 +19,7 @@ class GameLoop:
             self._counter += 1
             if self._counter > 10000:
                 self._counter = 0
-             
+
             if (self._game.state == "play" and self._counter % 50 == 0) or self._speed_down:
                 self._game.move_down()
 
@@ -46,7 +46,6 @@ class GameLoop:
                     self._speed_down = False
             elif event.type == pygame.QUIT:
                 return False
-            
 
     def _render(self):
         self._renderer.render()
