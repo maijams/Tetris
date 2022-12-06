@@ -5,6 +5,7 @@ from renderer import Renderer
 from clock import Clock
 from tetris import Tetris
 
+
 TILE_SIZE = 55
 
 
@@ -14,7 +15,7 @@ def main():
     game_screen_width = TILE_SIZE * width
     game_screen_heigth = TILE_SIZE * height
     game_screen = pygame.Surface((game_screen_width, game_screen_heigth))
-    display_width = game_screen_width + 300
+    display_width = game_screen_width + 500
     display_height = game_screen_heigth + 80
     display = pygame.display.set_mode((display_width, display_height))
 
@@ -23,9 +24,9 @@ def main():
     grid = [pygame.Rect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE)
             for x in range(width) for y in range(height)]
 
-    game = Tetris(20, 10)
-    event_queue = EventQueue()
+    game = Tetris(height, width)
     renderer = Renderer(game, display, game_screen, grid, TILE_SIZE)
+    event_queue = EventQueue()
     clock = Clock()
     game_loop = GameLoop(game, renderer, event_queue, clock, TILE_SIZE)
 

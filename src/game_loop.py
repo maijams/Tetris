@@ -1,4 +1,7 @@
+from datetime import date
 import pygame
+from database_connection import get_database_connection
+from initialize_database import initialize_database
 
 
 class GameLoop:
@@ -21,8 +24,12 @@ class GameLoop:
                 self._counter = 0
 
             if self._counter % 50 == 0 or self._speed_down:
-                if self._game.state == "play":
+                if self._game.get_state() == "play":
                     self._game.move_down()
+
+            if self._game.get_state() == "end":
+                self._save_score()
+                self._game.state = "done"
 
             if self._handle_events() == "quit":
                 break
@@ -47,6 +54,23 @@ class GameLoop:
                     self._speed_down = False
             elif event.type == pygame.QUIT:
                 return "quit"
+        return "continue"
+
+    def _save_score(self):
+        database = get_database_connection()
+        today = date.today().strftime("%d.%m.%Y")
+        try:
+            database.execute(
+                "INSERT INTO scoreboard (name, score, date) VALUES (?, ?, ?)",
+                ["nimi", self._game.get_points(), today]
+            )
+        except:
+            initialize_database()
+            database.execute(
+                "INSERT INTO scoreboard (name, score, date) VALUES (?, ?, ?)",
+                ["nimi", self._game.get_points(), today]
+            )
+        database.commit()
 
     def _render(self):
         self._renderer.render()
