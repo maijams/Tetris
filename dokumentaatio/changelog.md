@@ -20,3 +20,14 @@
     - Pelaaja voi nopeuttaa palikoiden putoamista näppäinkomennoilla
 - Lisätty luokka Tetris, joka vastaa palikoiden käyttäytymisestä
 - Lisätty luokkien Block ja Tetris testausta alustuksien ja metodien toimintaan liittyen
+
+## Viikko 5
+
+- Toteutettu seuraavat toiminnallisuudet:
+    - Rivin täyttyessä pelaaja saa pisteitä
+    - Tuhoamalla useamman rivin kerralla yhden palikan avulla, pelaaja saa ekstrapisteitä
+    - Peli päättyy jos palikkapino kasvaa pelilaudan korkuiseksi
+    - Pelin päättyessä pelaajan saama pistetulos tallennetaan tiedostoon
+    - Pelaaja voi tarkastella aiempien pelien pistekärkeä
+- Lisätty SQLite-tietokannan alustukseen liittyviä tiedostoja
+- Lisätty luokkien Block, Tetris & Clock testausta uusien metodien osalta & laajennettu vanhojen testikattavuutta

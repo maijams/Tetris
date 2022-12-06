@@ -16,11 +16,11 @@ Perusversiossa on toteutettu Tetriksen perinteiset ominaisuudet. Pelin tavoittee
 - [x] Putoavia palikoita voidaan kääntää näppäinkomennolla
 - [x] Palikka pysähtyy sen törmätessä seinään, lattiaan tai toiseen palikkaan
 - [x] Rivin täyttyessä palikoista, kyseinen rivi tuhoutuu
-- [ ] Rivin täyttyessä pelaaja saa pisteitä
-- [ ] Tuhoamalla useamman rivin kerralla yhden palikan avulla, pelaaja saa ekstrapisteitä
-- [ ] Peli päättyy jos palikkapino kasvaa pelilaudan korkuiseksi
-- [ ] Pelin päättyessä pelaajan saama pistetulos tallennetaan tiedostoon
-- [ ] Pelaaja voi tarkastella aiempien pelien pistekärkeä
+- [x] Rivin täyttyessä pelaaja saa pisteitä
+- [x] Tuhoamalla useamman rivin kerralla yhden palikan avulla, pelaaja saa ekstrapisteitä
+- [x] Peli päättyy jos palikkapino kasvaa pelilaudan korkuiseksi
+- [x] Pelin päättyessä pelaajan saama pistetulos tallennetaan tiedostoon
+- [x] Pelaaja voi tarkastella aiempien pelien pistekärkeä
 
 
 ## Jatkokehitysideoita
