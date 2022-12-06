@@ -11,7 +11,7 @@ class Tetris:
         self.points = 0
 
     def new_block(self):
-        self.block = Block(4, -1)
+        self.block = Block(4, 0)
 
     def move_down(self):
         self.block.y += 1
@@ -53,8 +53,8 @@ class Tetris:
                     field_x-1] = self.block.color
         self.remove_rows()
         self.new_block()
-        #if self.collision():
-         #   self.state = "end"
+        if self.collision():
+            self.state = "end"
 
     def remove_rows(self):
         rows = 0
