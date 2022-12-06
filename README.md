@@ -12,6 +12,9 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 [Arkkitehtuuri](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
+## Viimeisin release
+
+[Viikon 5 release](https://github.com/maijams/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Pelin asennus 
 
