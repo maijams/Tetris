@@ -17,7 +17,7 @@ class TestTetris(unittest.TestCase):
         self.assertEqual(self.tetris.state, "play")
 
     def test_tetris_initialization_score_is_zero(self):
-        self.assertEqual(self.tetris.score, 0)
+        self.assertEqual(self.tetris.points, 0)
 
     def test_tetris_initialization_block_is_none(self):
         self.assertEqual(self.tetris.block, None)
@@ -28,21 +28,21 @@ class TestTetris(unittest.TestCase):
 
     def test_method_move_down_changes_block_location(self):
         self.tetris.new_block()
-        y = self.tetris.block.y
+        y = self.tetris.block.pos_y
         self.tetris.move_down()
-        self.assertEqual(self.tetris.block.y, y+1)
+        self.assertEqual(self.tetris.block.pos_y, y+1)
 
     def test_method_move_sideways_works_when_moving_left(self):
         self.tetris.new_block()
-        x = self.tetris.block.x
+        x = self.tetris.block.pos_x
         self.tetris.move_sideways(-1)
-        self.assertEqual(self.tetris.block.x, x-1)
+        self.assertEqual(self.tetris.block.pos_x, x-1)
 
     def test_method_move_sideways_works_when_moving_right(self):
         self.tetris.new_block()
-        x = self.tetris.block.x
+        x = self.tetris.block.pos_x
         self.tetris.move_sideways(1)
-        self.assertEqual(self.tetris.block.x, x+1)
+        self.assertEqual(self.tetris.block.pos_x, x+1)
 
     def test_method_rotate_works(self):
         self.tetris.new_block()
