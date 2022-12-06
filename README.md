@@ -18,7 +18,7 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 ## Pelin asennus 
 
-Riippuvuudet voi asentaa komennolla:
+Asenna riippuvuudet komennolla:
 ```
 poetry install
 ```
