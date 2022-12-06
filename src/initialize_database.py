@@ -16,7 +16,6 @@ def create_tables(connection):
 
     cursor.execute('''
         create table scoreboard (
-            name text,
             score int,
             date text
         );

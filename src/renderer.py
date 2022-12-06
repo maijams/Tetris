@@ -26,11 +26,11 @@ class Renderer:
         font = pygame.font.SysFont('Arial', 30)
         points = font.render(
             "Points: " + str(self._game.get_points()), True, WHITE)
-        self._display.blit(points, (650, 100))
+        self._display.blit(points, (690, 100))
 
         if self._game.get_state() == "done":
             game_over = font.render("Game Over !", True, WHITE)
-            self._display.blit(game_over, (650, 300))
+            self._display.blit(game_over, (750, 250))
             self.draw_scoreboard()
 
         pygame.display.update()
@@ -73,11 +73,14 @@ class Renderer:
 
     def draw_scoreboard(self):
         font = pygame.font.SysFont('Arial', 30)
+        heading = font.render("HIGH SCORES", True, WHITE)
+        self._display.blit(heading, (720, 550))
         database = get_database_connection()
         scoreboard = database.execute(
             "SELECT * FROM scoreboard ORDER BY score DESC LIMIT 10").fetchall()
-        height = 400
+        height = 600
         for row in scoreboard:
-            score = font.render(str((row[0], row[1], row[2])), True, WHITE)
-            self._display.blit(score, (650, height))
+            string = f'{row[0]} points   {row[1]}'
+            score = font.render(string, True, WHITE)
+            self._display.blit(score, (680, height))
             height += 50

@@ -61,14 +61,14 @@ class GameLoop:
         today = date.today().strftime("%d.%m.%Y")
         try:
             database.execute(
-                "INSERT INTO scoreboard (name, score, date) VALUES (?, ?, ?)",
-                ["nimi", self._game.get_points(), today]
+                "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
+                [self._game.get_points(), today]
             )
         except:
             initialize_database()
             database.execute(
-                "INSERT INTO scoreboard (name, score, date) VALUES (?, ?, ?)",
-                ["nimi", self._game.get_points(), today]
+                "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
+                [self._game.get_points(), today]
             )
         database.commit()
 
