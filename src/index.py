@@ -14,7 +14,7 @@ def main():
     game_screen_width = TILE_SIZE * width
     game_screen_heigth = TILE_SIZE * height
     game_screen = pygame.Surface((game_screen_width, game_screen_heigth))
-    display_width = game_screen_width + 200
+    display_width = game_screen_width + 300
     display_height = game_screen_heigth + 80
     display = pygame.display.set_mode((display_width, display_height))
 

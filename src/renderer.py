@@ -11,6 +11,7 @@ class Renderer:
 
     def render(self):
         self._game_screen.fill((0, 0, 0))
+        self._display.fill((0, 0, 0))
 
         for field_y in range(self._game.height):
             for field_x in range(self._game.width):
@@ -44,5 +45,9 @@ class Renderer:
         for tile in self._grid:
             pygame.draw.rect(self._game_screen, (240, 240, 240), tile, 1)
 
+        font = pygame.font.SysFont('Arial', 30)
+        points = font.render("Points: " + str(self._game.get_points()), True, (255,255,255))
+        self._display.blit(points, (650, 100))
+        
         self._display.blit(self._game_screen, (50, 40))
         pygame.display.update()
