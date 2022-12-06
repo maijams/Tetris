@@ -16,7 +16,7 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 [Viikon 5 release](https://github.com/maijams/ot-harjoitustyo/releases/tag/viikko5)
 
-## Pelin asennus 
+## Käyttöohje
 
 Asenna riippuvuudet komennolla:
 ```
