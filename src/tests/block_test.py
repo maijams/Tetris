@@ -26,7 +26,7 @@ class TestBlock(unittest.TestCase):
         self.block.rotate()
         self.block.rotate()
         self.assertEqual(self.block.rotation, 0)
-        
+
     def test_block_revese_rotation_works_with_small_i(self):
         self.block.shape = 1
         self.block.reverse_rotate()

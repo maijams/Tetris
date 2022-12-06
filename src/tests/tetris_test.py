@@ -48,3 +48,18 @@ class TestTetris(unittest.TestCase):
         self.tetris.new_block()
         self.tetris.rotate()
         self.assertEqual(self.tetris.block.rotation, 1)
+
+    def test_method_get_points_works(self):
+        self.assertEqual(self.tetris.get_points(), 0)
+
+    def test_method_get_state_works(self):
+        self.assertEqual(self.tetris.get_state(), "play")
+
+    def test_method_remove_rows_does_not_change_points_if_no_rows_removed(self):
+        self.tetris.remove_rows()
+        self.assertEqual(self.tetris.get_points(), 0)
+
+    def test_method_freeze_game_ends_if_new_block_freezes(self):
+        self.tetris.new_block()
+        self.tetris.freeze()
+        self.assertEqual(self.tetris.get_state(), "end")
