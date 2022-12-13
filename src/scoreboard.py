@@ -1,27 +1,25 @@
+from datetime import date
 from database_connection import get_database_connection
 from initialize_database import initialize_database
-from datetime import date
 
 
 class ScoreBoard:
     '''Class that handles database related functions.'''
-    
-    
+
     def __init__(self):
         '''Class constructor that creates new database connection.'''
-        
-        self.database = get_database_connection()
 
+        self.database = get_database_connection()
 
     def save_score(self, points):
         '''Saves game score & current date to database.
-        
+
         If database doesn't exist, new database is initialized.
-        
+
         Args:
             points: Current game score.
         '''
-        
+
         today = date.today().strftime("%d.%m.%Y")
         try:
             self.database.execute(
@@ -35,14 +33,13 @@ class ScoreBoard:
                 [points, today]
             )
         self.database.commit()
-        
-    
+
     def get_scoreboard(self):
         '''Get top 10 high score.
-        
+
         Return:
             SQL query result for top 10.
         '''
-        
+
         return self.database.execute(
             "SELECT * FROM scoreboard ORDER BY score DESC LIMIT 10").fetchall()

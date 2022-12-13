@@ -3,6 +3,7 @@ import pygame
 
 class GameLoop:
     '''Class that handles '''
+
     def __init__(self, game, scoreboard, renderer, event_queue, clock, tile_size):
         self._game = game
         self._scoreboard = scoreboard
@@ -56,8 +57,6 @@ class GameLoop:
             elif event.type == pygame.QUIT:
                 return "quit"
         return "continue"
-
-    
 
     def _render(self):
         self._renderer.render()

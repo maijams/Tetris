@@ -11,7 +11,7 @@ class Renderer:
         self._display = display
         self._grid = grid
         self._game = game
-        self._scoreboard  = scoreboard
+        self._scoreboard = scoreboard
         self._tile_size = tile_size
 
     def render(self):
@@ -24,7 +24,7 @@ class Renderer:
         self._display.blit(self._game_screen, (50, 40))
 
         font = pygame.font.SysFont('Arial', 30)
-        
+
         points = font.render(
             "Points: " + str(self._game.get_points()), True, WHITE)
         self._display.blit(points, (690, 100))
@@ -76,7 +76,7 @@ class Renderer:
         font = pygame.font.SysFont('Arial', 30)
         heading = font.render("HIGH SCORES", True, WHITE)
         self._display.blit(heading, (720, 550))
-        
+
         scoreboard = self._scoreboard.get_scoreboard()
         height = 600
         for row in scoreboard:

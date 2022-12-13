@@ -12,13 +12,13 @@ TILE_SIZE = 55
 
 def main():
     '''Initialize game variables & game related objects. Start game.'''
-    
+
     width = 10
     height = 20
     game_screen_width = TILE_SIZE * width
     game_screen_heigth = TILE_SIZE * height
     game_screen = pygame.Surface((game_screen_width, game_screen_heigth))
-    
+
     display_width = game_screen_width + 500
     display_height = game_screen_heigth + 80
     display = pygame.display.set_mode((display_width, display_height))
@@ -30,10 +30,12 @@ def main():
 
     game = Tetris(height, width)
     scoreboard = ScoreBoard()
-    renderer = Renderer(game_screen, display, grid, game, scoreboard, TILE_SIZE)
+    renderer = Renderer(game_screen, display, grid,
+                        game, scoreboard, TILE_SIZE)
     event_queue = EventQueue()
     clock = Clock()
-    game_loop = GameLoop(game, scoreboard, renderer, event_queue, clock, TILE_SIZE)
+    game_loop = GameLoop(game, scoreboard, renderer,
+                         event_queue, clock, TILE_SIZE)
 
     pygame.init()
     game_loop.start()
