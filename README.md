@@ -4,19 +4,19 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 ## Dokumentaatio
 
-[Vaatimusmäärittely](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/maijams/Tetris/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
-[Työaikakirjanpito](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/maijams/Tetris/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
-[Changelog](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
+[Changelog](https://github.com/maijams/Tetris/blob/main/dokumentaatio/changelog.md)
 
-[Arkkitehtuuri](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+[Arkkitehtuuri](https://github.com/maijams/Tetris/blob/main/dokumentaatio/arkkitehtuuri.md)
 
-[Käyttöohje](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
+[Käyttöohje](https://github.com/maijams/Tetris/blob/main/dokumentaatio/kayttoohje.md)
 
 ## Viimeisin release
 
-[Viikon 6 release](https://github.com/maijams/ot-harjoitustyo/releases/tag/viikko5)
+[Viikon 6 release](https://github.com/maijams/Tetris/releases/tag/viikko6)
 
 ## Asennus
 
