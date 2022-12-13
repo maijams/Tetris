@@ -3,7 +3,7 @@ import pygame
 
 class GameLoop:
     '''Class that runs the game.
-    
+
     Attributes:
         game: Tetris object.
         scoreboard: ScoreBoard object.
@@ -15,7 +15,7 @@ class GameLoop:
 
     def __init__(self, game, scoreboard, renderer, event_queue, clock, tile_size):
         '''Class constructor that creates a new gameloop.
-        
+
         Args:
             game: Tetris object.
             scoreboard: ScoreBoard object.
@@ -24,7 +24,7 @@ class GameLoop:
             clock: Clock object.
             tile_size: Value that determines the size of tetris tiles.
         '''
-        
+
         self._game = game
         self._scoreboard = scoreboard
         self._renderer = renderer
@@ -36,7 +36,7 @@ class GameLoop:
 
     def start(self):
         '''Handles the main loop of the game.'''
-        
+
         while True:
             self._counter += 1
             if self._counter > 10000:
@@ -51,7 +51,7 @@ class GameLoop:
             if self._game.get_state() == "end":
                 self._save_score()
 
-            if self._handle_events() == False:
+            if self._handle_events() is False:
                 break
 
             self._render()
@@ -60,43 +60,43 @@ class GameLoop:
 
     def _handle_events(self):
         '''Handles pygame events.
-        
+
         Returns:
             False if event type is QUIT, otherwise True.
         '''
-        
+
         for event in self._event_queue.get():
             if event.type == pygame.KEYDOWN:
 
                 if event.key == pygame.K_LEFT:
                     self._game.move_sideways(-1)
-                    
+
                 if event.key == pygame.K_RIGHT:
                     self._game.move_sideways(1)
-                    
+
                 if event.key == pygame.K_UP:
                     self._game.rotate()
-                    
+
                 if event.key == pygame.K_DOWN:
                     self._speed_down = True
-                    
+
             elif event.type == pygame.KEYUP:
-                
+
                 if event.key == pygame.K_DOWN:
                     self._speed_down = False
-                    
+
             elif event.type == pygame.QUIT:
                 return False
-            
+
         return True
 
     def _render(self):
         '''Renders current game display.'''
-        
+
         self._renderer.render()
-        
+
     def _save_score(self):
         '''Saves gamescore to database.'''
-        
+
         self._scoreboard.save_score(self._game.get_points())
         self._game.state = "done"
