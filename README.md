@@ -12,24 +12,33 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 [Arkkitehtuuri](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
+[Käyttöohje](https://github.com/maijams/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
+
 ## Viimeisin release
 
-[Viikon 5 release](https://github.com/maijams/ot-harjoitustyo/releases/tag/viikko5)
+[Viikon 6 release](https://github.com/maijams/ot-harjoitustyo/releases/tag/viikko5)
 
-## Käyttöohje
+## Asennus
 
-Asenna riippuvuudet komennolla:
+1. Lataa viimeisin release tai kloonaa projekti koneellesi.
+
+2. Asenna riippuvuudet ohjelman juurihakemistossa komennolla:
 ```
 poetry install
 ```
-Pelin saa käyntiin komennolla:
+
+3. Pelin saa käyntiin komennolla:
 ```
 poetry run invoke start
 ```
-Testikattavuusraportin luominen projektin htmlcov-hakemistoon:
+
+## Testaus
+
+Testikattavuusraportin generoiminen projektin htmlcov-hakemistoon:
 ```
 poetry run invoke coverage-report
 ```
+## Pylint
 Pylint-tarkastuksen suorittaminen:
 ```
 poetry run invoke lint

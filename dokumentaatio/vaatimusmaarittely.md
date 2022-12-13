@@ -29,7 +29,8 @@ Perusversion jälkeen sovellusta on mahdollista laajentaa esimerkiksi seuraavill
 
 - [ ] Pelaaja voi säätää pelilaudan kokoa
 - [ ] Peruspalikoiden lisäksi pelissä on myös muita erimuotoisia ja erikokoisia palikoita
-- [x] Pelaaja voi nopeuttaa palikoiden putoamista näppäinkomennoilla
+- [x] Pelaaja voi nopeuttaa palikoiden putoamista näppäinkomennolla
+- [x] Uusi palikka ei putoa automaattisesti nopeutetulla vauhdilla vaikka 'nuoli alas' -näppäinkomento olisi jäänyt pohjaan
 - [ ] Pelaaja voi ansaita lisäpisteitä nopeuttamalla palikoiden putoamista
 - [ ] Saatujen pisteiden määrä on riippuvainen tuhoutuneiden palikoiden väristä, väreillä voi olla esimerkiksi eri prioriteetit tai pisteitä saa sitä enemmän mitä vähemmän rivissä on erivärisiä palikoita
 - [ ] Jos rivejä tuhoutuu kahdella peräkkäisellä palikalla, muodostuu kombo ja pelaaja saa lisäpisteitä

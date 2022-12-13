@@ -31,3 +31,11 @@
     - Pelaaja voi tarkastella aiempien pelien pistekärkeä
 - Lisätty SQLite-tietokannan alustukseen liittyviä tiedostoja
 - Lisätty luokkien Block, Tetris & Clock testausta uusien metodien osalta & laajennettu vanhojen testikattavuutta
+
+## Viikko 6
+
+- Toteutettu seuraavat toiminnallisuudet:
+    - Uusi palikka ei putoa automaattisesti nopeutetulla vauhdilla vaikka 'nuoli alas' -näppäinkomento olisi jäänyt pohjaan
+- Lisätty docstring-kommentit
+- Tietokantaan liittyvät toiminnot eriytetty omaan Scoreboard-luokkaansa
+- Käyttöliittymään liittyvät tiedostot eriytetty ui-hakemistoon
