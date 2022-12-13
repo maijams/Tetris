@@ -29,6 +29,7 @@ def main():
             for x in range(width) for y in range(height)]
 
     game = Tetris(height, width)
+    game.new_block()
     scoreboard = ScoreBoard()
     renderer = Renderer(game_screen, display, grid,
                         game, scoreboard, TILE_SIZE)

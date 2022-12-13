@@ -2,9 +2,29 @@ import pygame
 
 
 class GameLoop:
-    '''Class that handles '''
+    '''Class that runs the game.
+    
+    Attributes:
+        game: Tetris object.
+        scoreboard: ScoreBoard object.
+        renderer: Renderer object.
+        event_queue: EventQueue object.
+        clock: Clock object.
+        tile_size: Value that determines the size of tetris tiles.
+    '''
 
     def __init__(self, game, scoreboard, renderer, event_queue, clock, tile_size):
+        '''Class constructor that creates a new gameloop.
+        
+        Args:
+            game: Tetris object.
+            scoreboard: ScoreBoard object.
+            renderer: Renderer object.
+            event_queue: EventQueue object.
+            clock: Clock object.
+            tile_size: Value that determines the size of tetris tiles.
+        '''
+        
         self._game = game
         self._scoreboard = scoreboard
         self._renderer = renderer
@@ -15,25 +35,23 @@ class GameLoop:
         self._speed_down = False
 
     def start(self):
+        '''Handles the main loop of the game.'''
+        
         while True:
-            if self._game.block is None:
-                self._game.new_block()
-
             self._counter += 1
             if self._counter > 10000:
                 self._counter = 0
 
-            if self._counter % 50 == 0 or self._speed_down:
-                if self._game.get_state() == "play":
+            if self._game.get_state() == "play":
+                if self._counter % 50 == 0 or self._speed_down:
                     move_down = self._game.move_down()
                     if not move_down:
                         self._speed_down = False
 
             if self._game.get_state() == "end":
-                self._scoreboard.save_score(self._game.get_points())
-                self._game.state = "done"
+                self._save_score()
 
-            if self._handle_events() == "quit":
+            if self._handle_events() == False:
                 break
 
             self._render()
@@ -41,22 +59,44 @@ class GameLoop:
             self._clock.tick(60)
 
     def _handle_events(self):
+        '''Handles pygame events.
+        
+        Returns:
+            False if event type is QUIT, otherwise True.
+        '''
+        
         for event in self._event_queue.get():
             if event.type == pygame.KEYDOWN:
+
                 if event.key == pygame.K_LEFT:
                     self._game.move_sideways(-1)
+                    
                 if event.key == pygame.K_RIGHT:
                     self._game.move_sideways(1)
+                    
                 if event.key == pygame.K_UP:
                     self._game.rotate()
+                    
                 if event.key == pygame.K_DOWN:
                     self._speed_down = True
+                    
             elif event.type == pygame.KEYUP:
+                
                 if event.key == pygame.K_DOWN:
                     self._speed_down = False
+                    
             elif event.type == pygame.QUIT:
-                return "quit"
-        return "continue"
+                return False
+            
+        return True
 
     def _render(self):
+        '''Renders current game display.'''
+        
         self._renderer.render()
+        
+    def _save_score(self):
+        '''Saves gamescore to database.'''
+        
+        self._scoreboard.save_score(self._game.get_points())
+        self._game.state = "done"
