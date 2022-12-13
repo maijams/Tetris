@@ -132,7 +132,9 @@ class Tetris:
 
 
     def get_points(self):
-        '''Returns:
+        '''Get game points.
+        
+        Returns:
             The amount of current points.
         '''
         
@@ -140,7 +142,10 @@ class Tetris:
 
 
     def get_state(self):
-        '''Returns:
+        '''Get game state.
+        
+        Returns:
             The current state of the game.
         '''
+        
         return self.state

@@ -11,6 +11,8 @@ TILE_SIZE = 55
 
 
 def main():
+    '''Initialize game variables & game related objects. Start game.'''
+    
     width = 10
     height = 20
     game_screen_width = TILE_SIZE * width
