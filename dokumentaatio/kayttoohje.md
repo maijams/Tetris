@@ -26,10 +26,10 @@ Peli noudattaa klassikkopelin Tetris säännöstöä. Tavoitteena on kerätä ma
 - nuoli ylös = käännä palikkaa
 - nuoli alas = nopeuta palikan putoamista
 
-Pelinäkymä:
+**Pelinäkymä:**
 ![Screenshot from 2022-12-13 23-10-25](https://user-images.githubusercontent.com/96269683/207453381-26fecb87-c7a3-4b31-9676-6aab4b8372e5.png)
 
-Pelin päättyminen:
+**Pelin päättyminen:**
 ![Screenshot from 2022-12-13 23-11-13](https://user-images.githubusercontent.com/96269683/207453444-fd4388b6-f848-4b02-a5a4-ce0a6149d806.png)
 
 
