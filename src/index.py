@@ -1,10 +1,10 @@
 import pygame
 from tetris import Tetris
 from scoreboard import ScoreBoard
-from renderer import Renderer
-from event_queue import EventQueue
-from clock import Clock
-from game_loop import GameLoop
+from ui.renderer import Renderer
+from ui.event_queue import EventQueue
+from ui.clock import Clock
+from ui.game_loop import GameLoop
 
 
 TILE_SIZE = 55
