@@ -1,12 +1,11 @@
-from datetime import date
 import pygame
-from database_connection import get_database_connection
-from initialize_database import initialize_database
 
 
 class GameLoop:
-    def __init__(self, game, renderer, event_queue, clock, tile_size):
+    '''Class that handles '''
+    def __init__(self, game, scoreboard, renderer, event_queue, clock, tile_size):
         self._game = game
+        self._scoreboard = scoreboard
         self._renderer = renderer
         self._event_queue = event_queue
         self._clock = clock
@@ -30,7 +29,7 @@ class GameLoop:
                         self._speed_down = False
 
             if self._game.get_state() == "end":
-                self._save_score()
+                self._scoreboard.save_score(self._game.get_points())
                 self._game.state = "done"
 
             if self._handle_events() == "quit":
@@ -58,21 +57,7 @@ class GameLoop:
                 return "quit"
         return "continue"
 
-    def _save_score(self):
-        database = get_database_connection()
-        today = date.today().strftime("%d.%m.%Y")
-        try:
-            database.execute(
-                "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
-                [self._game.get_points(), today]
-            )
-        except:
-            initialize_database()
-            database.execute(
-                "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
-                [self._game.get_points(), today]
-            )
-        database.commit()
+    
 
     def _render(self):
         self._renderer.render()

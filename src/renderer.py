@@ -1,5 +1,4 @@
 import pygame
-from database_connection import get_database_connection
 
 
 WHITE = (255, 255, 255)
@@ -7,11 +6,12 @@ BLACK = (0, 0, 0)
 
 
 class Renderer:
-    def __init__(self, game, display, game_screen, grid, tile_size):
-        self._game = game
-        self._display = display
+    def __init__(self, game_screen, display, grid, game, scoreboard, tile_size):
         self._game_screen = game_screen
+        self._display = display
         self._grid = grid
+        self._game = game
+        self._scoreboard  = scoreboard
         self._tile_size = tile_size
 
     def render(self):
@@ -76,9 +76,8 @@ class Renderer:
         font = pygame.font.SysFont('Arial', 30)
         heading = font.render("HIGH SCORES", True, WHITE)
         self._display.blit(heading, (720, 550))
-        database = get_database_connection()
-        scoreboard = database.execute(
-            "SELECT * FROM scoreboard ORDER BY score DESC LIMIT 10").fetchall()
+        
+        scoreboard = self._scoreboard.get_scoreboard()
         height = 600
         for row in scoreboard:
             string = f'{row[0]} points   {row[1]}'
