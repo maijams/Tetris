@@ -6,7 +6,29 @@ BLACK = (0, 0, 0)
 
 
 class Renderer:
+    '''Class that handles the rendering of the game.
+
+    Attributes:
+        game_screen: Pygame surface that contains the tetris game.
+        display: Pygame display.
+        grid: Game grid consisting of pygame rectangles.
+        game: Tetris object.
+        scoreboard: ScoreBoard object.
+        tile_size: Value that determines the size of tetris tiles.
+    '''
+
     def __init__(self, game_screen, display, grid, game, scoreboard, tile_size):
+        '''Class constructor that creates a new renderer.
+
+        Args:
+            game_screen: Pygame surface that contains the tetris game.
+            display: Pygame display.
+            grid: Game grid consisting of pygame rectangles.
+            game: Tetris object.
+            scoreboard: ScoreBoard object.
+            tile_size: Value that determines the size of tetris tiles.
+        '''
+
         self._game_screen = game_screen
         self._display = display
         self._grid = grid
@@ -15,6 +37,8 @@ class Renderer:
         self._tile_size = tile_size
 
     def render(self):
+        '''Draws elements on display & update pygame display.'''
+
         self._display.fill(BLACK)
         self._game_screen.fill(BLACK)
 
@@ -37,6 +61,8 @@ class Renderer:
         pygame.display.update()
 
     def draw_colored_squares(self):
+        '''Draws colored rectangles on game screen surface, according to game field data.'''
+
         for field_y in range(self._game.height):
             for field_x in range(self._game.width):
                 color = self._game.field[field_y][field_x]
@@ -53,6 +79,8 @@ class Renderer:
                     )
 
     def draw_active_block(self):
+        '''Draws the falling (active) block on game screen surface by using pygame rectangles.'''
+
         for field_y in range(4):
             for field_x in range(4):
                 square = field_y*4 + field_x
@@ -69,10 +97,14 @@ class Renderer:
                     )
 
     def draw_grid(self):
+        '''Draws tile grid on game screen surface by using pygame rectangles.'''
+
         for tile in self._grid:
             pygame.draw.rect(self._game_screen, (240, 240, 240), tile, 1)
 
     def draw_scoreboard(self):
+        '''Draws scoreboard on game display.'''
+
         font = pygame.font.SysFont('Arial', 30)
         heading = font.render("HIGH SCORES", True, WHITE)
         self._display.blit(heading, (720, 550))
