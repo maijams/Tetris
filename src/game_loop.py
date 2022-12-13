@@ -25,7 +25,9 @@ class GameLoop:
 
             if self._counter % 50 == 0 or self._speed_down:
                 if self._game.get_state() == "play":
-                    self._game.move_down()
+                    move_down = self._game.move_down()
+                    if not move_down:
+                        self._speed_down = False
 
             if self._game.get_state() == "end":
                 self._save_score()

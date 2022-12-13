@@ -36,12 +36,17 @@ class Tetris:
         '''Moves the falling block one step downwards. 
         
         If block collides with other objects, the step is reversed and the block freezes.
+        
+        Returns:
+            False if collision happens, otherwise True.
         '''
         
         self.block.pos_y += 1
         if self.collision():
             self.block.pos_y -= 1
             self.freeze()
+            return False
+        return True
 
 
     def move_sideways(self, direction):
