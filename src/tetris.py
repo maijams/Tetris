@@ -1,5 +1,5 @@
 from block import Block
-
+from math import ceil
 
 class Tetris:
     '''Class that handles the game state & events.
@@ -23,7 +23,8 @@ class Tetris:
         self.block = None
         self.field = [[0]*width for _ in range(height)]
         self.points = 0
-
+        self.level = 1
+    
     def new_block(self):
         '''Creates a new falling block at the top of the game grid.'''
 
@@ -121,6 +122,7 @@ class Tetris:
                     for field_x in range(self.width):
                         self.field[i][field_x] = self.field[i-1][field_x]
         self.points += rows**2 * self.width
+        self.update_level()
 
     def get_points(self):
         '''Get game points.
@@ -139,3 +141,21 @@ class Tetris:
         '''
 
         return self.state
+
+    def get_level(self):
+        '''Get game level.
+
+        Returns:
+            The current level of the game.
+        '''
+        
+        return self.level
+    
+    def update_level(self):
+        points = self.get_points()
+        if points == 0:
+            self.level = 1
+        elif points < 800:
+            self.level = ceil(points / 199)
+        else:
+            self.level = 5

@@ -37,19 +37,22 @@ class GameLoop:
     def start(self):
         '''Handles the main loop of the game.'''
 
+        level_speed = [0, 50, 40, 30, 20, 10]
+        
         while True:
             self._counter += 1
             if self._counter > 10000:
                 self._counter = 0
 
+            if self._game.get_state() == "end":
+                self._save_score()
+                
             if self._game.get_state() == "play":
-                if self._counter % 50 == 0 or self._speed_down:
+                level = self._game.get_level()
+                if self._counter % level_speed[level] == 0 or self._speed_down:
                     move_down = self._game.move_down()
                     if not move_down:
                         self._speed_down = False
-
-            if self._game.get_state() == "end":
-                self._save_score()
 
             if self._handle_events() is False:
                 break

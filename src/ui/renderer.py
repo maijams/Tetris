@@ -52,6 +52,10 @@ class Renderer:
         points = font.render(
             "Points: " + str(self._game.get_points()), True, WHITE)
         self._display.blit(points, (690, 100))
+        
+        level = font.render(
+            "Level: " + str(self._game.get_level()), True, WHITE)
+        self._display.blit(level, (690, 200))
 
         if self._game.get_state() == "done":
             game_over = font.render("Game Over !", True, WHITE)
