@@ -9,7 +9,7 @@ class ScoreBoard:
     def __init__(self):
         '''Class constructor that creates new database connection.'''
 
-        self.database = get_database_connection()
+        self._database = get_database_connection()
 
     def save_score(self, points):
         '''Saves game score & current date to database.
@@ -22,17 +22,17 @@ class ScoreBoard:
 
         today = date.today().strftime("%d.%m.%Y")
         try:
-            self.database.execute(
+            self._database.execute(
                 "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
                 [points, today]
             )
         except:
             initialize_database()
-            self.database.execute(
+            self._database.execute(
                 "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
                 [points, today]
             )
-        self.database.commit()
+        self._database.commit()
 
     def get_scoreboard(self):
         '''Get top 10 high score.
@@ -41,5 +41,5 @@ class ScoreBoard:
             SQL query result for top 10.
         '''
 
-        return self.database.execute(
+        return self._database.execute(
             "SELECT * FROM scoreboard ORDER BY score DESC LIMIT 10").fetchall()

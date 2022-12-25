@@ -40,10 +40,10 @@ class Tetris:
             False if collision happens, otherwise True.
         '''
 
-        self.block.pos_y += 1
-        if self.collision():
-            self.block.pos_y -= 1
-            self.freeze()
+        self.block.move_down()
+        if self._collision():
+            self.block.move_up()
+            self._freeze()
             return False
         return True
 
@@ -53,13 +53,13 @@ class Tetris:
         If block collides with other objects, the step is reversed.
 
         Args:
-            direction: Direction that block should be moved to. -1 = left, 1 = right.
+            direction: Direction where the block should be moved to. -1 = left, 1 = right.
         '''
 
         current_x = self.block.pos_x
-        self.block.pos_x += direction
-        if self.collision():
-            self.block.pos_x = current_x
+        self.block.move_sideways(direction)
+        if self._collision():
+            self.block.set_horizontal_position(current_x)
 
     def rotate(self):
         '''Rotates the falling block.
@@ -68,51 +68,56 @@ class Tetris:
         '''
 
         self.block.rotate()
-        if self.collision():
+        if self._collision():
             self.block.reverse_rotate()
 
-    def collision(self):
+    def _collision(self):
         '''Checks whether the falling block collides with walls, floor or other blocks.
 
         Returns:
             True, if collision happens. False, if no collision.
         '''
 
-        collide = False
+        block_y = self.block.pos_y
+        block_x = self.block.pos_x
+
         for field_y in range(4):
             for field_x in range(4):
                 square = field_y*4 + field_x
                 if square in self.block.figure():
-                    if self.block.pos_y + field_y >= self.height:
-                        collide = True
-                    elif self.block.pos_x + field_x >= self.width:
-                        collide = True
-                    elif self.block.pos_x + field_x < 0:
-                        collide = True
-                    elif self.field[self.block.pos_y+field_y][self.block.pos_x+field_x] != 0:
-                        collide = True
-        return collide
+                    if block_y + field_y >= self.height:
+                        return True
+                    if block_x + field_x >= self.width:
+                        return True
+                    if block_x + field_x < 0:
+                        return True
+                    if self.field[block_y + field_y][block_x + field_x] != 0:
+                        return True
+        return False
 
-    def freeze(self):
+    def _freeze(self):
         '''Updates the game field according to frozen block coordinates.
 
         Remove full rows & create a new block.
 
         If collision happens with the new block, game state is changed to "end".
         '''
+        
+        block_y = self.block.pos_y
+        block_x = self.block.pos_x
 
         for field_y in range(4):
             for field_x in range(4):
                 square = field_y*4 + field_x
                 if square in self.block.figure():
-                    self.field[self.block.pos_y+field_y][self.block.pos_x +
-                                                         field_x] = self.block.color
-        self.remove_rows()
+                    self.field[block_y + field_y][block_x +
+                                                  field_x] = self.block.color
+        self._remove_rows()
         self.new_block()
-        if self.collision():
+        if self._collision():
             self.state = "end"
 
-    def remove_rows(self):
+    def _remove_rows(self):
         '''Remove full rows if they exist. Update points accordingly.'''
 
         rows = 0
@@ -123,40 +128,17 @@ class Tetris:
                     for field_x in range(self.width):
                         self.field[i][field_x] = self.field[i-1][field_x]
         self.points += rows**2 * self.width
-        self.update_level()
+        self._update_level()
 
-    def get_points(self):
-        '''Get game points.
+    def _update_level(self):
+        '''Updates game level according to amount of points.
 
-        Returns:
-            The amount of current points.
+        New level every 200 points until maximum level 5 is reached
         '''
 
-        return self.points
-
-    def get_state(self):
-        '''Get game state.
-
-        Returns:
-            The current state of the game.
-        '''
-
-        return self.state
-
-    def get_level(self):
-        '''Get game level.
-
-        Returns:
-            The current level of the game.
-        '''
-
-        return self.level
-
-    def update_level(self):
-        points = self.get_points()
-        if points == 0:
+        if self.points == 0:
             self.level = 1
-        elif points < 800:
-            self.level = ceil(points / 199)
+        elif self.points < 800:
+            self.level = ceil(self.points / 199)
         else:
             self.level = 5

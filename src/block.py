@@ -76,3 +76,31 @@ class Block:
         '''
 
         return self.blocks[self.shape][self.rotation]
+
+    def move_down(self):
+        '''Increases the y coordinate of the block by one.'''
+
+        self.pos_y += 1
+
+    def move_up(self):
+        '''Decreases the y coordinate of the block by one.'''
+
+        self.pos_y -= 1
+
+    def move_sideways(self, direction):
+        '''Change the x coordinate of the block by one.
+
+        Args:
+            direction: Direction where the block should be moved to. -1 = left, 1 = right.
+        '''
+
+        self.pos_x += direction
+
+    def set_horizontal_position(self, pos_x):
+        '''Set the horizontal position of the block.
+
+        Args:
+            pos_x: New position of the block.
+        '''
+
+        self.pos_x = pos_x

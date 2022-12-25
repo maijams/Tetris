@@ -45,11 +45,11 @@ class GameLoop:
             if self._counter > 10000:
                 self._counter = 0
 
-            if self._game.get_state() == "end":
+            if self._game.state == "end":
                 self._save_score()
 
-            if self._game.get_state() == "play":
-                level = self._game.get_level()
+            if self._game.state == "play":
+                level = self._game.level
                 if self._counter % level_speed[level] == 0 or self._speed_down:
                     move_down = self._game.move_down()
                     if not move_down:
@@ -90,7 +90,7 @@ class GameLoop:
                     new_game = Tetris(height, width)
                     self._game = new_game
                     self._game.new_block()
-                    self._renderer._game = new_game
+                    self._renderer.game = new_game
 
             elif event.type == pygame.KEYUP:
 
@@ -110,5 +110,5 @@ class GameLoop:
     def _save_score(self):
         '''Saves gamescore to database.'''
 
-        self._scoreboard.save_score(self._game.get_points())
+        self._scoreboard.save_score(self._game.points)
         self._game.state = "done"
