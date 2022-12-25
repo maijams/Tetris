@@ -102,7 +102,7 @@ class Tetris:
 
         If collision happens with the new block, game state is changed to "end".
         '''
-        
+
         block_y = self.block.pos_y
         block_x = self.block.pos_x
 

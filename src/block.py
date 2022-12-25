@@ -42,8 +42,8 @@ class Block:
 
         self.pos_x = location_x
         self.pos_y = location_y
-        self.shape = random.randint(0, len(self.blocks)-1)
-        self.rotation = 0
+        self._shape = random.randint(0, len(self.blocks)-1)
+        self._rotation = 0
         self.color = self.colors[random.randint(0, len(self.colors)-1)]
 
     def rotate(self):
@@ -53,10 +53,10 @@ class Block:
         Else rotation is increased by one.
         '''
 
-        if self.rotation == len(self.blocks[self.shape])-1:
-            self.rotation = 0
+        if self._rotation == len(self.blocks[self._shape])-1:
+            self._rotation = 0
         else:
-            self.rotation += 1
+            self._rotation += 1
 
     def reverse_rotate(self):
         '''Reverses the block rotation if the block collides with walls or other blocks.
@@ -65,17 +65,17 @@ class Block:
         Else rotation is decreased by one.
         '''
 
-        if self.rotation == 0:
-            self.rotation = len(self.blocks[self.shape])-1
+        if self._rotation == 0:
+            self._rotation = len(self.blocks[self._shape])-1
         else:
-            self.rotation -= 1
+            self._rotation -= 1
 
     def figure(self):
         '''Returns:
             The current state of the block, i.e. the block shape & rotation combination.
         '''
 
-        return self.blocks[self.shape][self.rotation]
+        return self.blocks[self._shape][self._rotation]
 
     def move_down(self):
         '''Increases the y coordinate of the block by one.'''

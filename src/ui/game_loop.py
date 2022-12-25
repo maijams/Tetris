@@ -85,12 +85,7 @@ class GameLoop:
                     self._speed_down = True
 
                 if event.key == pygame.K_r:
-                    height = self._game.height
-                    width = self._game.width
-                    new_game = Tetris(height, width)
-                    self._game = new_game
-                    self._game.new_block()
-                    self._renderer.game = new_game
+                    self._restart_game()
 
             elif event.type == pygame.KEYUP:
 
@@ -112,3 +107,13 @@ class GameLoop:
 
         self._scoreboard.save_score(self._game.points)
         self._game.state = "done"
+
+    def _restart_game(self):
+        '''Restarts new game.'''
+
+        height = self._game.height
+        width = self._game.width
+        new_game = Tetris(height, width)
+        self._game = new_game
+        self._game.new_block()
+        self._renderer.game = new_game

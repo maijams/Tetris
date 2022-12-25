@@ -74,7 +74,7 @@ class Renderer:
 
         block_y = self.game.block.pos_y
         block_x = self.game.block.pos_x
-        
+
         for field_y in range(4):
             for field_x in range(4):
                 square = field_y*4 + field_x
