@@ -78,6 +78,8 @@ Luokka GameLoop kutsuu muita käyttöliittymästä vastaavia luokkia Clock, Even
 Pelin pisteiden tallennuksesta huolehtii repositories-hakemiston luokka [ScoreBoard](https://github.com/maijams/Tetris/blob/main/src/repositories/scoreboard.py). Päättyneen pelin pistemäärä ja päivämäärä tallennetaan SQLite-tietokantatauluun `scoreboard`, mikäli pistemäärä on enemmän kuin nolla pistettä. ScoreBoard sisältää myös metodin tietokantahakua varten. Tietokantataulun alustukseen liittyvät koodi löytyy tiedostosta initialize_database.py ja tietokantayhteyden muodostamisesta vastaa tiedosto database_connection.py
 
 ## Päätoiminnallisuudet
+
+Alla kuvattuna muutama ohjelman päätoiminnallisuuksista sekvenssikaavioiden avulla.
 ### Putoavan palikan kääntäminen
 
 ```mermaid
@@ -109,6 +111,32 @@ sequenceDiagram
     Tetris ->> Block: move_sideways(-1)
     Block ->> Block: 
     Block -->> Tetris: 
+    Tetris -->> GameLoop: 
+```
+
+### Putoava palikka törmää esteeseen
+
+Palikan törmätessä esteeseen, kyseinen palikka "jäätyy" paikalleen ja peliin muodostuu uusi putoava palikka.
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant GameLoop
+    participant Tetris
+    participant Block
+
+    User ->> GameLoop: press key "DOWN"
+    GameLoop ->> Tetris: move_down()
+    Tetris ->> Block: move_down()
+    Block ->> Block: 
+    Block -->> Tetris: 
+    Tetris ->> Tetris: collision()
+    Tetris ->> Block: move_up()
+    Block ->> Block: 
+    Block -->> Tetris: 
+    Tetris ->> Tetris: freeze()
+    Tetris ->> Tetris: remove_rows()
+    Tetris ->> Tetris: new_block()
     Tetris -->> GameLoop: 
 ```
 
