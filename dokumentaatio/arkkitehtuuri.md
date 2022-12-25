@@ -4,7 +4,7 @@
 
 Käyttöliittymään liittyvät tiedostot on pakattu ui-hakemistoon. Sovelluslogiikkaan ja tietokantaan liittyvät tiedostot löytyvät src-hakemiston juuresta.
 
-![Screenshot from 2022-12-13 23-59-51](https://user-images.githubusercontent.com/96269683/207453188-f25a476f-1b72-4f36-b904-a55f6995d420.png)
+![Screenshot from 2022-12-25 21-58-33](https://user-images.githubusercontent.com/96269683/209480561-9f5eace3-c3ef-46fd-83f8-6f22ddd48f5f.png)
 
 
 ## Käyttöliittymä
