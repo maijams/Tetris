@@ -1,4 +1,5 @@
 import pygame
+from tetris import Tetris
 
 
 class GameLoop:
@@ -82,6 +83,14 @@ class GameLoop:
 
                 if event.key == pygame.K_DOWN:
                     self._speed_down = True
+                    
+                if event.key == pygame.K_r:
+                    height = self._game.height
+                    width = self._game.width
+                    new_game = Tetris(height, width)
+                    self._game = new_game
+                    self._game.new_block()
+                    self._renderer._game = new_game
 
             elif event.type == pygame.KEYUP:
 

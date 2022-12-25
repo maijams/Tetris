@@ -49,17 +49,21 @@ class Renderer:
 
         font = pygame.font.SysFont('Arial', 30)
 
-        points = font.render(
-            "Points: " + str(self._game.get_points()), True, WHITE)
-        self._display.blit(points, (690, 100))
-        
         level = font.render(
             "Level: " + str(self._game.get_level()), True, WHITE)
-        self._display.blit(level, (690, 200))
+        self._display.blit(level, (750, 100))
+        
+        points = font.render(
+            "Points: " + str(self._game.get_points()), True, WHITE)
+        self._display.blit(points, (750, 200))
+        
+        restart = font.render(
+            "Press R to restart the game", True, WHITE)
+        self._display.blit(restart, (650, 1120))
 
         if self._game.get_state() == "done":
             game_over = font.render("Game Over !", True, WHITE)
-            self._display.blit(game_over, (750, 250))
+            self._display.blit(game_over, (750, 350))
             self.draw_scoreboard()
 
         pygame.display.update()
@@ -111,10 +115,10 @@ class Renderer:
 
         font = pygame.font.SysFont('Arial', 30)
         heading = font.render("HIGH SCORES", True, WHITE)
-        self._display.blit(heading, (720, 550))
+        self._display.blit(heading, (720, 500))
 
         scoreboard = self._scoreboard.get_scoreboard()
-        height = 600
+        height = 550
         for row in scoreboard:
             string = f'{row[0]} points   {row[1]}'
             score = font.render(string, True, WHITE)
