@@ -39,7 +39,7 @@ class GameLoop:
         '''Handles the main loop of the game.'''
 
         level_speed = [0, 50, 40, 30, 20, 10]
-        
+
         while True:
             self._counter += 1
             if self._counter > 10000:
@@ -47,7 +47,7 @@ class GameLoop:
 
             if self._game.get_state() == "end":
                 self._save_score()
-                
+
             if self._game.get_state() == "play":
                 level = self._game.get_level()
                 if self._counter % level_speed[level] == 0 or self._speed_down:
@@ -83,7 +83,7 @@ class GameLoop:
 
                 if event.key == pygame.K_DOWN:
                     self._speed_down = True
-                    
+
                 if event.key == pygame.K_r:
                     height = self._game.height
                     width = self._game.width
