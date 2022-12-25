@@ -60,6 +60,8 @@ class Tetris:
         self.block.move_sideways(direction)
         if self._collision():
             self.block.set_horizontal_position(current_x)
+            return False
+        return True
 
     def rotate(self):
         '''Rotates the falling block.
@@ -70,6 +72,8 @@ class Tetris:
         self.block.rotate()
         if self._collision():
             self.block.reverse_rotate()
+            return False
+        return True
 
     def _collision(self):
         '''Checks whether the falling block collides with walls, floor or other blocks.
@@ -85,6 +89,8 @@ class Tetris:
             for field_x in range(4):
                 square = field_y*4 + field_x
                 if square in self.block.figure():
+                    if block_y + field_y < 0:
+                        continue
                     if block_y + field_y >= self.height:
                         return True
                     if block_x + field_x >= self.width:
@@ -115,6 +121,8 @@ class Tetris:
         self._remove_rows()
         self.new_block()
         if self._collision():
+            while self._collision():
+                self.block.move_up()
             self.state = "end"
 
     def _remove_rows(self):

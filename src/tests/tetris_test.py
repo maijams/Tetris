@@ -50,9 +50,14 @@ class TestTetris(unittest.TestCase):
 
     def test_tetris_method_rotate_works(self):
         self.tetris.new_block()
-        self.tetris.rotate()
+        result = self.tetris.rotate()
 
-        self.assertEqual(self.tetris.block._rotation, 1)
+        if self.tetris.block._shape == 0:
+            self.assertEqual(self.tetris.block._rotation, 0)
+        else:
+            self.assertEqual(self.tetris.block._rotation, 1)
+
+        self.assertTrue(result)
 
     def test_tetris_method_remove_rows_does_not_change_points_if_no_rows_removed(self):
         self.tetris._remove_rows()
@@ -109,3 +114,79 @@ class TestTetris(unittest.TestCase):
         self.tetris.points = 1100
         self.tetris._update_level()
         self.assertEqual(self.tetris.level, 5)
+
+    def test_tetris_method_collision_returns_false_when_no_collision(self):
+        self.tetris.new_block()
+        self.tetris.block._shape = 0
+        self.tetris.field[2][5] = (255, 255, 255)
+        result = self.tetris._collision()
+
+        self.assertFalse(result)
+
+    def test_tetris_method_collision_with_other_block(self):
+        self.tetris.new_block()
+        self.tetris.block._shape = 0
+        self.tetris.field[1][5] = (255, 255, 255)
+        result = self.tetris._collision()
+
+        self.assertTrue(result)
+
+    def test_tetris_method_collision_with_right_wall(self):
+        self.tetris.new_block()
+        self.tetris.block.set_horizontal_position(9)
+        result = self.tetris._collision()
+
+        self.assertTrue(result)
+
+    def test_tetris_method_collision_with_left_wall(self):
+        self.tetris.new_block()
+        self.tetris.block.set_horizontal_position(-2)
+        result = self.tetris._collision()
+
+        self.assertTrue(result)
+
+    def test_tetris_method_collision_with_floor(self):
+        self.tetris.new_block()
+        self.tetris.block.pos_y = 19
+        result = self.tetris._collision()
+
+        self.assertTrue(result)
+
+    def test_tetris_method_move_down_returns_false_when_collision(self):
+        self.tetris.new_block()
+        self.tetris.block._shape = 0
+        self.tetris.field[2][5] = (255, 255, 255)
+        result = self.tetris.move_down()
+
+        self.assertFalse(result)
+
+    def test_tetris_method_move_sideways_returns_false_when_collision(self):
+        self.tetris.new_block()
+        self.tetris.block._shape = 0
+        self.tetris.block.set_horizontal_position(7)
+        result = self.tetris.move_sideways(1)
+
+        self.assertFalse(result)
+
+    def test_tetris_method_rotate_returns_false_when_collision(self):
+        self.tetris.new_block()
+        self.tetris.block._shape = 1
+        self.tetris.block.set_horizontal_position(7)
+        result = self.tetris.rotate()
+
+        self.assertFalse(result)
+
+    def test_tetris_method_remove_rows_with_one_row(self):
+        WHITE = (255, 255, 255)
+        self.tetris.field[8] = [WHITE]*10
+        self.tetris._remove_rows()
+
+        self.assertEqual(self.tetris.points, 10)
+
+    def test_tetris_method_remove_rows_with_two_rows(self):
+        WHITE = (255, 255, 255)
+        self.tetris.field[8] = [WHITE]*10
+        self.tetris.field[9] = [WHITE]*10
+        self.tetris._remove_rows()
+
+        self.assertEqual(self.tetris.points, 40)
