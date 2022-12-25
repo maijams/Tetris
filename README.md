@@ -12,6 +12,8 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 [Arkkitehtuuri](https://github.com/maijams/Tetris/blob/main/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/maijams/Tetris/blob/main/dokumentaatio/testaus.md)
+
 [Käyttöohje](https://github.com/maijams/Tetris/blob/main/dokumentaatio/kayttoohje.md)
 
 ## Viimeisin release
