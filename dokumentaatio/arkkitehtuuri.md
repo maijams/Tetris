@@ -94,3 +94,22 @@ sequenceDiagram
     Block -->> Tetris: 
     Tetris -->> GameLoop: 
 ```
+
+### Putoavan palikan liikuttaminen sivusuunnassa
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant GameLoop
+    participant Tetris
+    participant Block
+
+    User ->> GameLoop: press key "LEFT"
+    GameLoop ->> Tetris: move_sideways(-1)
+    Tetris ->> Block: move_sideways(-1)
+    Block ->> Block: 
+    Block -->> Tetris: 
+    Tetris -->> GameLoop: 
+```
+
+

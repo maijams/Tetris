@@ -9,4 +9,6 @@
 | 5.12.2022 |    3    | Peliin lisätty pisteominaisuus |
 | 6.12.2022 |    9    | Lisätty pisteiden tallennus tietokantaan ym. toiminnallisuutta. Refaktorointia, bugien korjauksia & uusia testejä |
 | 13.12.2022 |   8    | Lisätty docstring-kommentaatio. Eriytetty tietokantatoiminnot omaan luokkaansa & käyttöliittymä omaan hakemistoon. |
-|  Yhteensä |   42    | | 
+| 24.12.2022 |   2    | Lisätty level-ominaisuus. |
+| 25.12.2022 |   11   | Lisätty restart-toiminto. Testauksen lisäystä & ohjelman viimeistelyä |
+|  Yhteensä |   55    | | 

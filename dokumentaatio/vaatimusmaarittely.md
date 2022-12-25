@@ -21,6 +21,7 @@ Perusversiossa on toteutettu Tetriksen perinteiset ominaisuudet. Pelin tavoittee
 - [x] Peli päättyy jos palikkapino kasvaa pelilaudan korkuiseksi
 - [x] Pelin päättyessä pelaajan saama pistetulos tallennetaan tiedostoon
 - [x] Pelaaja voi tarkastella aiempien pelien pistekärkeä
+- [x] Pelin voi halutessaan aloittaa koska tahansa alusta
 
 
 ## Jatkokehitysideoita
@@ -34,4 +35,4 @@ Perusversion jälkeen sovellusta on mahdollista laajentaa esimerkiksi seuraavill
 - [ ] Pelaaja voi ansaita lisäpisteitä nopeuttamalla palikoiden putoamista
 - [ ] Saatujen pisteiden määrä on riippuvainen tuhoutuneiden palikoiden väristä, väreillä voi olla esimerkiksi eri prioriteetit tai pisteitä saa sitä enemmän mitä vähemmän rivissä on erivärisiä palikoita
 - [ ] Jos rivejä tuhoutuu kahdella peräkkäisellä palikalla, muodostuu kombo ja pelaaja saa lisäpisteitä
-- [ ] Pistemäärän karttuessa pelaaja pääsee etenemään korkeammille leveleille. Palikoiden putoamisnopeus on sitä kovempi mitä korkeammalla levelillä ollaan
+- [x] Pistemäärän karttuessa pelaaja pääsee etenemään korkeammille leveleille. Palikoiden putoamisnopeus on sitä kovempi mitä korkeammalla levelillä ollaan

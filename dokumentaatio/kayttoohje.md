@@ -32,6 +32,9 @@ Peli noudattaa klassikkopelin Tetris säännöstöä. Tavoitteena on kerätä ma
 **Pelin päättyminen:**
 ![Screenshot from 2022-12-13 23-11-13](https://user-images.githubusercontent.com/96269683/207453444-fd4388b6-f848-4b02-a5a4-ce0a6149d806.png)
 
+### Pelin uudelleen käynnistäminen
+
+Pelin voi aloittaa alusta milloin tahansa painikkeella "R".
 
 ### Pelin lopettaminen
 

@@ -39,3 +39,12 @@
 - Lisätty docstring-kommentit
 - Tietokantaan liittyvät toiminnot eriytetty omaan Scoreboard-luokkaansa
 - Käyttöliittymään liittyvät tiedostot eriytetty ui-hakemistoon
+
+## Viikot 7 & 8
+
+- Toteutettu seuraavat toiminnallisuudet:
+    - Pistemäärän karttuessa pelaaja pääsee etenemään korkeammille leveleille. Palikoiden putoamisnopeus on sitä kovempi mitä korkeammalla levelillä ollaan
+    - Pelin voi halutessaan aloittaa koska tahansa alusta (restart-toiminto)
+- Korjattu bugi jossa pelin päättyessä viimeinen palikka asettui toisiksi viimeisen palikan päälle
+- Lisätty testausta luokille Block, Tetris ja ScoreBoard
+- Muutettu arkkitehtuuria jakamalla tiedostot services-, repositories-, ja entities-hakemistoihin
