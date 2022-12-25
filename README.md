@@ -18,7 +18,7 @@ Kurssin Ohjelmistotekniikka harjoitustyöprojekti
 
 ## Viimeisin release
 
-[Viikon 6 release](https://github.com/maijams/Tetris/releases/tag/viikko6)
+[Loppupalautus](https://github.com/maijams/Tetris/releases/tag/loppupalautus)
 
 ## Asennus
 
