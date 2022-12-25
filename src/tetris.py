@@ -133,12 +133,14 @@ class Tetris:
     def _update_level(self):
         '''Updates game level according to amount of points.
 
-        New level every 200 points until maximum level 5 is reached
+        New level every 200 points until maximum level 5 is reached.
         '''
 
         if self.points == 0:
             self.level = 1
         elif self.points < 800:
-            self.level = ceil(self.points / 199)
+            self.level = ceil(self.points / 200)
+            if self.points % 200 == 0:
+                self.level += 1
         else:
             self.level = 5
