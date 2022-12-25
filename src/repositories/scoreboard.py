@@ -1,4 +1,5 @@
 from datetime import date
+import sqlite3
 from database_connection import get_database_connection
 from initialize_database import initialize_database
 
@@ -27,7 +28,7 @@ class ScoreBoard:
                 "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
                 [points, today]
             )
-        except:
+        except sqlite3.Error:
             initialize_database(self._db_name)
             self._database.execute(
                 "INSERT INTO scoreboard (score, date) VALUES (?, ?)",
@@ -41,6 +42,8 @@ class ScoreBoard:
         Return:
             SQL query result for top 10.
         '''
-
-        return self._database.execute(
-            "SELECT * FROM scoreboard ORDER BY score DESC LIMIT 10").fetchall()
+        try:
+            return self._database.execute(
+                "SELECT * FROM scoreboard ORDER BY score DESC LIMIT 10").fetchall()
+        except sqlite3.OperationalError:
+            return None

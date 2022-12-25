@@ -31,6 +31,7 @@ def main():
     game = Tetris(height, width)
     game.new_block()
     scoreboard = ScoreBoard("tetris.db")
+
     renderer = Renderer(game_screen, display, grid,
                         game, scoreboard, TILE_SIZE)
     event_queue = EventQueue()

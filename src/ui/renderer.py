@@ -107,11 +107,15 @@ class Renderer:
 
         scoreboard = self._scoreboard.get_scoreboard()
         height = 550
-        for row in scoreboard:
-            string = f'{str(row[0]):4} points   {row[1]}'
-            score = font.render(string, True, WHITE)
-            self._display.blit(score, (670, height))
-            height += 50
+        if scoreboard is not None:
+            for row in scoreboard:
+                string = f'{str(row[0]):4} points   {row[1]}'
+                score = font.render(string, True, WHITE)
+                self._display.blit(score, (670, height))
+                height += 50
+        else:
+            text = font.render("No high scores yet", True, WHITE)
+            self._display.blit(text, (700, height))
 
     def _draw_game_info(self):
         '''Draws game related info next to the game screen.'''
