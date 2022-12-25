@@ -194,5 +194,5 @@ class TestTetris(unittest.TestCase):
     def test_tetris_method_freeze_works_when_game_ends(self):
         self.tetris.new_block()
         self.tetris._freeze()
-        
+
         self.assertEqual(self.tetris.state, "end")

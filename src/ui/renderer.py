@@ -3,6 +3,8 @@ import pygame
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
 
 
 class Renderer:
@@ -100,15 +102,15 @@ class Renderer:
         '''Draws scoreboard on game display.'''
 
         font = pygame.font.SysFont('Arial', 30)
-        heading = font.render("HIGH SCORES", True, WHITE)
+        heading = font.render("HIGH SCORES", True, RED)
         self._display.blit(heading, (720, 500))
 
         scoreboard = self._scoreboard.get_scoreboard()
         height = 550
         for row in scoreboard:
-            string = f'{row[0]} points   {row[1]}'
+            string = f'{str(row[0]):4} points   {row[1]}'
             score = font.render(string, True, WHITE)
-            self._display.blit(score, (680, height))
+            self._display.blit(score, (670, height))
             height += 50
 
     def _draw_game_info(self):
@@ -117,18 +119,18 @@ class Renderer:
         font = pygame.font.SysFont('Arial', 30)
 
         level = font.render(
-            "Level: " + str(self.game.level), True, WHITE)
-        self._display.blit(level, (750, 100))
+            "Level:   " + str(self.game.level), True, WHITE)
+        self._display.blit(level, (760, 100))
 
         points = font.render(
-            "Points: " + str(self.game.points), True, WHITE)
+            "Points:   " + str(self.game.points), True, WHITE)
         self._display.blit(points, (750, 200))
 
         if self.game.state == "done":
-            game_over = font.render("Game Over !", True, WHITE)
-            self._display.blit(game_over, (750, 350))
+            game_over = font.render("Game Over !", True, RED)
+            self._display.blit(game_over, (740, 350))
             self._draw_scoreboard()
 
         restart = font.render(
-            "Press R to restart the game", True, WHITE)
+            "Press R to restart the game", True, BLUE)
         self._display.blit(restart, (650, 1120))

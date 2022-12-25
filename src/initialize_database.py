@@ -5,7 +5,7 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        drop table if exists scoreboard;
+        DROP TABLE IF EXISTS scoreboard;
     ''')
 
     connection.commit()
@@ -15,7 +15,7 @@ def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        create table scoreboard (
+        CREATE TABLE scoreboard (
             score int,
             date text
         );
@@ -24,12 +24,8 @@ def create_tables(connection):
     connection.commit()
 
 
-def initialize_database():
-    connection = get_database_connection()
+def initialize_database(db_name):
+    connection = get_database_connection(db_name)
 
     drop_tables(connection)
     create_tables(connection)
-
-
-if __name__ == "__main__":
-    initialize_database()

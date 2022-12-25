@@ -46,7 +46,9 @@ class GameLoop:
                 self._counter = 0
 
             if self._game.state == "end":
-                self._save_score()
+                if self._game.points > 0:
+                    self._save_score()
+                self._game.state = "done"
 
             if self._game.state == "play":
                 level = self._game.level
@@ -106,7 +108,6 @@ class GameLoop:
         '''Saves gamescore to database.'''
 
         self._scoreboard.save_score(self._game.points)
-        self._game.state = "done"
 
     def _restart_game(self):
         '''Restarts new game.'''
