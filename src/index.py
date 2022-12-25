@@ -1,6 +1,6 @@
 import pygame
-from tetris import Tetris
-from scoreboard import ScoreBoard
+from services.tetris import Tetris
+from repositories.scoreboard import ScoreBoard
 from ui.renderer import Renderer
 from ui.event_queue import EventQueue
 from ui.clock import Clock

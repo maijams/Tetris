@@ -1,5 +1,5 @@
 from math import ceil
-from block import Block
+from entities.block import Block
 
 
 class Tetris:

@@ -1,5 +1,5 @@
 import unittest
-from scoreboard import ScoreBoard
+from repositories.scoreboard import ScoreBoard
 import initialize_database as db
 
 

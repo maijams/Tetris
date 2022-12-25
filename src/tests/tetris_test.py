@@ -1,5 +1,5 @@
 import unittest
-from tetris import Tetris
+from services.tetris import Tetris
 
 
 class TestTetris(unittest.TestCase):

@@ -1,5 +1,5 @@
 import pygame
-from tetris import Tetris
+from services.tetris import Tetris
 
 
 class GameLoop:
